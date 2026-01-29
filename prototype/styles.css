@@ -1,0 +1,231 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #0d0d12;
+  color: #f6f4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(121, 61, 179, 0.25), transparent 55%),
+    radial-gradient(circle at 10% 20%, rgba(226, 38, 87, 0.2), transparent 45%), #0b0b10;
+}
+
+.slice {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.slice__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.slice__header h1 {
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  margin: 8px 0 12px;
+}
+
+.eyebrow {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #b69aff;
+  margin: 0;
+}
+
+.lede {
+  max-width: 480px;
+  color: #d7d2f5;
+  line-height: 1.6;
+}
+
+.slice__status {
+  display: grid;
+  gap: 16px;
+  min-width: 260px;
+}
+
+.status-card {
+  background: rgba(20, 20, 30, 0.72);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(123, 87, 200, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.status-card .label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #c6b4ff;
+  letter-spacing: 0.12em;
+}
+
+.status-card .value {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 6px;
+}
+
+.meter {
+  background: rgba(255, 255, 255, 0.08);
+  height: 10px;
+  border-radius: 999px;
+  margin: 10px 0 6px;
+  overflow: hidden;
+}
+
+.meter__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff3154, #a62dff);
+}
+
+.slice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: rgba(17, 17, 28, 0.85);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(139, 98, 226, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 12px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.muted {
+  margin: 0;
+  color: #cfc6f7;
+  line-height: 1.5;
+}
+
+.map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.map__node {
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.85rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
+}
+
+.map__node--safehouse {
+  border-color: rgba(255, 102, 166, 0.8);
+}
+
+.map__node--alley {
+  border-color: rgba(145, 88, 255, 0.7);
+}
+
+.map__node--rooftop {
+  border-color: rgba(88, 198, 255, 0.7);
+}
+
+.map__node--club {
+  border-color: rgba(255, 197, 88, 0.7);
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  border: 1px solid rgba(155, 115, 255, 0.5);
+  padding: 12px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(155, 115, 255, 0.2);
+}
+
+.btn--primary {
+  background: linear-gradient(120deg, #ff4570, #8b5fff);
+  border: none;
+}
+
+.log {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px;
+  border-radius: 12px;
+  min-height: 120px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  color: #d6cff5;
+  line-height: 1.6;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.toggle__btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 6px 16px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 20px;
+  color: #d6cff5;
+  display: grid;
+  gap: 8px;
+}
+
+.steps__item--complete {
+  text-decoration: line-through;
+  color: #8be5b0;
+}
+
+.cta {
+  margin-top: 12px;
+}

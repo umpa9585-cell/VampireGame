@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Game Vertical Slice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="slice">
+      <header class="slice__header">
+        <div>
+          <p class="eyebrow">Vampire Game • Vertical Slice Prototype</p>
+          <h1>Neon Nocturne: London</h1>
+          <p class="lede">
+            You are a fledgling vampire in modern London. Navigate the night, maintain
+            your hunger, and secure a relic from the Order of St. James before dawn.
+          </p>
+        </div>
+        <div class="slice__status">
+          <div class="status-card">
+            <span class="label">Time to Dawn</span>
+            <span class="value" id="dawn-timer">04:30</span>
+          </div>
+          <div class="status-card">
+            <span class="label">Hunger</span>
+            <div class="meter">
+              <div class="meter__fill" id="hunger-fill" style="width: 55%"></div>
+            </div>
+            <span class="value" id="hunger-label">Steady</span>
+          </div>
+          <div class="status-card">
+            <span class="label">Masquerade</span>
+            <span class="value" id="masquerade-status">Intact</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="slice__grid">
+        <article class="card card--map">
+          <h2>Night District</h2>
+          <p class="muted">
+            Whitechapel streets are alive with hunters, commuters, and hidden prey.
+            Your goal: infiltrate the Order's safehouse without breaking the Masquerade.
+          </p>
+          <div class="map">
+            <div class="map__node map__node--safehouse">Order Safehouse</div>
+            <div class="map__node map__node--alley">Alleyway Feed</div>
+            <div class="map__node map__node--rooftop">Rooftop Route</div>
+            <div class="map__node map__node--club">Nightclub Distraction</div>
+          </div>
+        </article>
+
+        <article class="card card--actions">
+          <h2>Vertical Slice Actions</h2>
+          <p class="muted">Each action demonstrates one core pillar: stealth, combat, and feeding.</p>
+          <div class="actions">
+            <button class="btn" data-action="feed">Feed in the Alley</button>
+            <button class="btn" data-action="stealth">Shadow Step Rooftops</button>
+            <button class="btn" data-action="combat">Confront Hunter Patrol</button>
+            <button class="btn" data-action="infiltrate">Infiltrate Safehouse</button>
+          </div>
+          <div class="log" id="action-log" aria-live="polite">
+            <p>Awaiting your first move...</p>
+          </div>
+        </article>
+
+        <article class="card card--loadout">
+          <h2>Relic Loadout</h2>
+          <ul class="list">
+            <li><strong>Veil Pendant:</strong> dampens surveillance for 30 seconds.</li>
+            <li><strong>Blood Echo:</strong> highlights nearby NPC heartbeats.</li>
+            <li><strong>Raven Mark:</strong> summons a scout familiar.</li>
+          </ul>
+          <div class="toggle">
+            <span>Stealth Mode</span>
+            <button class="toggle__btn" id="stealth-toggle" aria-pressed="false">Inactive</button>
+          </div>
+        </article>
+
+        <article class="card card--objective">
+          <h2>Mission Objective</h2>
+          <ol class="steps">
+            <li class="steps__item steps__item--complete">Enter Whitechapel district.</li>
+            <li class="steps__item" id="step-feed">Secure a discreet feed.</li>
+            <li class="steps__item" id="step-infiltrate">Retrieve the relic from the safehouse.</li>
+            <li class="steps__item" id="step-escape">Escape before dawn.</li>
+          </ol>
+          <div class="cta">
+            <button class="btn btn--primary" data-action="escape">Escape via River Dock</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
