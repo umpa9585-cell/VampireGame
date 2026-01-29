@@ -48,6 +48,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 - **Chaos:** too much randomness → enforce momentum with inertia-based state updates.
 - **Performance:** use low-resolution synoptic grid and local interpolation.
 
+### Design Stages
+1. **Stage 1: Climate Baseline** — implement seasonal curves, biome offsets, and daily temperature swing.
+2. **Stage 2: Synoptic Layer** — add pressure grid, wind gradients, and front evolution.
+3. **Stage 3: Local Variance** — integrate noise-based micro-variation and localized fog.
+4. **Stage 4: Storm Events** — add storm cell formation rules, lightning, and precipitation intensity.
+5. **Stage 5: Gameplay Hooks** — wire weather into visibility, NPC reactions, and combat modifiers.
+
 ---
 
 ## 2) Immersive Choice-Based Dialogue System
@@ -80,6 +87,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 - **Deception/Insight layers:** highlight subtext if skill is high.
 - **Delayed consequences:** store tokens that activate later.
 
+### Design Stages
+1. **Stage 1: Dialogue Graph** — establish node/choice schema and basic branching.
+2. **Stage 2: Conditions & Effects** — add gating rules and memory tokens.
+3. **Stage 3: Reactivity** — wire to reputation, humanity, and faction states.
+4. **Stage 4: Presentation** — add tone indicators, locked previews, and subtext cues.
+5. **Stage 5: Persistence** — test long-term consequences with delayed triggers.
+
 ---
 
 ## 3) Deep Gated Skill Tree
@@ -108,6 +122,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 ### Risks
 - Too many nodes = overwhelm → create clusters with meta-nodes.
 
+### Design Stages
+1. **Stage 1: Core Tree** — define tiers, categories, and baseline nodes.
+2. **Stage 2: Gates** — implement quest/faction/humanity prerequisites.
+3. **Stage 3: Synergy** — add cross-branch nodes and combo effects.
+4. **Stage 4: Balance** — tune costs, unlock cadence, and respec rules.
+5. **Stage 5: UX Polish** — add previews and build comparisons.
+
 ---
 
 ## 4) Deep Immersive Humanity System
@@ -134,6 +155,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 - Skill tree gates (dark powers vs compassionate powers).
 - Combat modifiers (e.g., frenzy risk at low humanity).
 
+### Design Stages
+1. **Stage 1: Scoring Model** — define score ranges and tier labels.
+2. **Stage 2: Event Weights** — implement action-based deltas and recovery windows.
+3. **Stage 3: System Hooks** — gate skills and alter dialogue availability.
+4. **Stage 4: World Reaction** — NPC behavior and faction reputation shifts.
+5. **Stage 5: Feedback** — add UI indicators and narrative tells.
+
 ---
 
 ## 5) Factions System
@@ -156,6 +184,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 ### Player Effects
 - Access to faction-exclusive skills and weapons.
 - Reputation threshold unlocks quests.
+
+### Design Stages
+1. **Stage 1: Data Model** — define faction metadata, alignments, and leader states.
+2. **Stage 2: Reputation** — implement player standings and reputation cascades.
+3. **Stage 3: Simulation** — add influence ticks and faction actions.
+4. **Stage 4: Content Hooks** — integrate quests, vendors, and safehouses.
+5. **Stage 5: Narrative Dynamics** — handle betrayal, alliances, and takeovers.
 
 ---
 
@@ -181,6 +216,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 - **Combo chains:** attacks feed into a meter.
 - **AI tactics:** adaptive to player style.
 
+### Design Stages
+1. **Stage 1: Core Loop** — implement hit/miss, damage, and mitigation.
+2. **Stage 2: Modifiers** — apply weather, stance, status effects, and fatigue.
+3. **Stage 3: Resources** — add stamina/blood costs and recovery.
+4. **Stage 4: Advanced Moves** — combos, stagger, and critical variations.
+5. **Stage 5: Tuning** — analytics-backed balancing and encounter pacing.
+
 ---
 
 ## 7) NPC Algorithm (Immersive and Realistic)
@@ -203,6 +245,13 @@ Represent weather using layered state rather than a single "weather type" enum.
 ### Enhancements
 - **Schedules:** routine behaviors anchored to time.
 - **Rumor system:** NPCs spread stories that affect reputation.
+
+### Design Stages
+1. **Stage 1: Core AI** — implement behavior tree or utility AI framework.
+2. **Stage 2: Needs & Memory** — add needs decay, memory tokens, and priorities.
+3. **Stage 3: Schedules** — time-based routines and location anchors.
+4. **Stage 4: World Reactivity** — respond to player actions and faction shifts.
+5. **Stage 5: Social Simulation** — rumors, alliances, and emergent reactions.
 
 ---
 
