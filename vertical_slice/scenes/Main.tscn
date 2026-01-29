@@ -1,0 +1,246 @@
+[gd_scene load_steps=23 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id=1]
+[ext_resource type="PackedScene" path="res://scenes/NPC.tscn" id=2]
+[ext_resource type="Script" path="res://scripts/world.gd" id=3]
+[ext_resource type="Script" path="res://scripts/ui.gd" id=4]
+[ext_resource type="Script" path="res://scripts/ritual_site.gd" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color(0.06, 0.06, 0.08, 1)
+ambient_light_energy = 0.7
+fog_enabled = true
+fog_density = 0.04
+fog_light_color = Color(0.2, 0.2, 0.3, 1)
+fog_height_density = 0.03
+
+[sub_resource type="BoxShape3D" id=2]
+size = Vector3(80, 1, 80)
+
+[sub_resource type="BoxMesh" id=3]
+size = Vector3(80, 1, 80)
+
+[sub_resource type="StandardMaterial3D" id=4]
+albedo_color = Color(0.08, 0.08, 0.1, 1)
+roughness = 0.95
+
+[sub_resource type="BoxShape3D" id=5]
+size = Vector3(20, 0.2, 60)
+
+[sub_resource type="BoxMesh" id=6]
+size = Vector3(20, 0.2, 60)
+
+[sub_resource type="StandardMaterial3D" id=7]
+albedo_color = Color(0.05, 0.05, 0.06, 1)
+roughness = 0.98
+
+[sub_resource type="BoxShape3D" id=8]
+size = Vector3(8, 12, 10)
+
+[sub_resource type="BoxMesh" id=9]
+size = Vector3(8, 12, 10)
+
+[sub_resource type="StandardMaterial3D" id=10]
+albedo_color = Color(0.12, 0.12, 0.16, 1)
+roughness = 0.9
+
+[sub_resource type="BoxShape3D" id=11]
+size = Vector3(6, 8, 6)
+
+[sub_resource type="BoxMesh" id=12]
+size = Vector3(6, 8, 6)
+
+[sub_resource type="StandardMaterial3D" id=13]
+albedo_color = Color(0.18, 0.18, 0.22, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id=14]
+size = Vector3(4, 0.4, 4)
+
+[sub_resource type="StandardMaterial3D" id=15]
+albedo_color = Color(0.2, 0.12, 0.2, 1)
+roughness = 0.6
+
+[sub_resource type="CylinderMesh" id=16]
+height = 2.6
+bottom_radius = 0.3
+top_radius = 0.3
+radial_segments = 24
+
+[sub_resource type="StandardMaterial3D" id=17]
+albedo_color = Color(0.12, 0.1, 0.14, 1)
+roughness = 0.8
+
+[node name="Main" type="Node3D"]
+script = ExtResource(3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource(1)
+
+[node name="MoonLight" type="DirectionalLight3D" parent="."]
+light_color = Color(0.7, 0.8, 1, 1)
+light_energy = 0.8
+rotation = Vector3(-1.1, 0.2, 0.0)
+
+[node name="StreetLightA" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.85, 0.6, 1)
+light_energy = 4.0
+omni_range = 20.0
+position = Vector3(3, 4, 6)
+
+[node name="StreetLightB" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.8, 0.6, 1)
+light_energy = 3.5
+omni_range = 20.0
+position = Vector3(-4, 4, -8)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource(2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource(3)
+material_override = SubResource(4)
+
+[node name="Street" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street"]
+shape = SubResource(5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Street"]
+mesh = SubResource(6)
+material_override = SubResource(7)
+
+[node name="BuildingA" type="StaticBody3D" parent="."]
+position = Vector3(14, 6, 8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingA"]
+shape = SubResource(8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BuildingA"]
+mesh = SubResource(9)
+material_override = SubResource(10)
+
+[node name="BuildingB" type="StaticBody3D" parent="."]
+position = Vector3(-16, 6, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingB"]
+shape = SubResource(8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BuildingB"]
+mesh = SubResource(9)
+material_override = SubResource(10)
+
+[node name="BuildingC" type="StaticBody3D" parent="."]
+position = Vector3(6, 4, -18)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingC"]
+shape = SubResource(11)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BuildingC"]
+mesh = SubResource(12)
+material_override = SubResource(13)
+
+[node name="BuildingD" type="StaticBody3D" parent="."]
+position = Vector3(-8, 4, 18)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingD"]
+shape = SubResource(11)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BuildingD"]
+mesh = SubResource(12)
+material_override = SubResource(13)
+
+[node name="Player" parent="." instance=ExtResource(1)]
+position = Vector3(0, 1.2, 12)
+
+[node name="Civilian" parent="." instance=ExtResource(2)]
+position = Vector3(2, 0.8, 2)
+npc_type = "civilian"
+display_name = "Night Worker"
+humanity_delta = -12
+blood_gain = 20
+
+[node name="Criminal" parent="." instance=ExtResource(2)]
+position = Vector3(-3, 0.8, -4)
+npc_type = "criminal"
+display_name = "Dock Thug"
+humanity_delta = -4
+blood_gain = 15
+
+[node name="Hunter" parent="." instance=ExtResource(2)]
+position = Vector3(6, 0.8, -10)
+npc_type = "hunter"
+display_name = "Hunters Guild"
+humanity_delta = 8
+blood_gain = 10
+
+[node name="RitualSite" type="Node3D" parent="."]
+position = Vector3(-10, 0.6, 6)
+script = ExtResource(5)
+
+[node name="Dais" type="MeshInstance3D" parent="RitualSite"]
+mesh = SubResource(14)
+material_override = SubResource(15)
+
+[node name="Obelisk" type="MeshInstance3D" parent="RitualSite"]
+mesh = SubResource(16)
+material_override = SubResource(17)
+translation = Vector3(0, 1.5, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+script = ExtResource(4)
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HUDPanel" type="Panel" parent="CanvasLayer/UI"]
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.32
+anchor_bottom = 0.32
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/HUDPanel"]
+anchor_left = 0.05
+anchor_top = 0.08
+anchor_right = 0.95
+anchor_bottom = 0.92
+
+[node name="HumanityLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = "Humanity"
+
+[node name="HumanityBar" type="ProgressBar" parent="CanvasLayer/UI/HUDPanel/VBox"]
+max_value = 100.0
+value = 62.0
+
+[node name="BloodLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = "Blood"
+
+[node name="BloodBar" type="ProgressBar" parent="CanvasLayer/UI/HUDPanel/VBox"]
+max_value = 100.0
+value = 40.0
+
+[node name="DistrictLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = "District Health"
+
+[node name="DistrictBar" type="ProgressBar" parent="CanvasLayer/UI/HUDPanel/VBox"]
+max_value = 100.0
+value = 78.0
+
+[node name="ActionLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = "Awakened in Whitechapel"
+autowrap_mode = 3
+
+[node name="HintLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = ""
+autowrap_mode = 3
+
+[node name="ObjectiveLabel" type="Label" parent="CanvasLayer/UI/HUDPanel/VBox"]
+text = "Hunt for blood, then cleanse the shrine."
+autowrap_mode = 3
