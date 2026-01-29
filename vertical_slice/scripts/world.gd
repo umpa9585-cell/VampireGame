@@ -10,6 +10,7 @@ var drift_timer := 0.0
 func _ready() -> void:
 	add_to_group("world")
 	_update_ui("Awakened in Whitechapel")
+	_set_objective("Hunt for blood, then cleanse the shrine.")
 
 func _process(delta: float) -> void:
 	drift_timer += delta
@@ -26,6 +27,20 @@ func register_feed(npc_type: String, humanity_delta: int, blood_gain: int, displ
 	district_health = clamp(district_health - impact, 0, 100)
 	var action_text := "Fed on %s (%s)" % [display_name, npc_type]
 	_update_ui(action_text)
+
+func register_ritual(humanity_boost: int, blood_cost: int, district_boost: int, display_name: String) -> void:
+	humanity = clamp(humanity + humanity_boost, 0, 100)
+	blood = clamp(blood - blood_cost, 0, 100)
+	district_health = clamp(district_health + district_boost, 0, 100)
+	_update_ui("Ritual cleansed at %s" % display_name)
+
+func set_interaction_hint(hint_text: String) -> void:
+	if ui and ui.has_method("update_hint"):
+		ui.update_hint(hint_text)
+
+func _set_objective(objective_text: String) -> void:
+	if ui and ui.has_method("update_objective"):
+		ui.update_objective(objective_text)
 
 func _update_ui(action_text: String) -> void:
 	if ui and ui.has_method("update_values"):

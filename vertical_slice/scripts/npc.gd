@@ -18,6 +18,9 @@ func interact(player: Node) -> void:
 		world.register_feed(npc_type, humanity_delta, blood_gain, display_name)
 	_apply_fed_visuals()
 
+func get_interaction_hint() -> String:
+	return "Feed on %s" % display_name
+
 func _apply_fed_visuals() -> void:
 	if mesh.material_override:
 		var faded := mesh.material_override.duplicate()

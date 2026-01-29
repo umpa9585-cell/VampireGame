@@ -19,4 +19,5 @@ A playable prototype lives in `vertical_slice/` and targets Godot 4.x (Xogot com
 - Shift: Sprint
 - Space: Jump
 - E: Feed/Interact
+- Q: Shadow Dash
 - Esc: Toggle mouse capture

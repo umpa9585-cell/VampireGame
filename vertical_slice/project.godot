@@ -42,6 +42,10 @@ interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"keycode":69)]
 }
+dash={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"keycode":81)]
+}
 
 [physics]
 3d/default_gravity=18.0
